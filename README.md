@@ -1,4 +1,4 @@
 JavaMath
 ========
 
-A collection of static mathematical functions in Java.
+A collection of static mathematical and physics functions in Java.

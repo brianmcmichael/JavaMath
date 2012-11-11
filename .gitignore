@@ -1,4 +1,9 @@
 *.class
+TestClass.*
+*.html
+.project
+
+!JavaMath.html
 
 # Package Files #
 *.jar
