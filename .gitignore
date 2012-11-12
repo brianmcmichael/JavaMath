@@ -4,6 +4,7 @@ TestClass.*
 .project
 
 !JavaMath.html
+!Fraction.html
 
 # Package Files #
 *.jar

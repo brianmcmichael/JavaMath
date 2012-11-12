@@ -106,4 +106,68 @@ public class JavaMath {
 		else { return ceilingNumber; }			
 	}
 	
+	///////////////////////////////////////////////
+	//             Adding Fractions              //   
+	///////////////////////////////////////////////
+	
+	
+	/**
+	 * @param fractionOne The first Fraction object to be added.
+	 * @param fractionTwo The second Fraction object to be added.
+	 * @return Returns the sum of two fractions.
+	 */
+	public static Fraction addFractions(final Fraction fractionOne, final Fraction fractionTwo)
+	{
+		double numeratorOne = fractionOne.getNumerator();
+		double denominatorOne = fractionOne.getDenominator();
+		double numeratorTwo = fractionTwo.getNumerator();
+		double denominatorTwo = fractionTwo.getDenominator();
+		if (denominatorOne == denominatorTwo)
+		{
+			Fraction addedFraction = new Fraction((numeratorOne + numeratorTwo), denominatorOne);
+			return addedFraction;
+		}
+		else
+		{
+			double newNumerator = numeratorOne * denominatorTwo;
+			double newDenominator = numeratorTwo * denominatorOne;
+			double GCD = greatestCommonDevisor(newNumerator, newDenominator);
+			newNumerator = newNumerator / GCD;
+			newDenominator = newDenominator / GCD;			
+			return new Fraction(newNumerator, newDenominator);			
+		}		
+	}
+	
+	///////////////////////////////////////////////
+	//         Greatest Common Divisor           //   
+	///////////////////////////////////////////////
+	
+	/**
+	 * Determines the highest common factor as int of two integers.
+	 * 
+	 * @param first The first number (int).
+	 * @param second The second number (int).
+	 * @return Returns an int of the highest common factor.
+	 */
+	public static int greatestCommonDevisor(final int first, final int second)
+	{
+		int remainder = first % second;
+		if (remainder == 0) { return second; }
+		else { return greatestCommonDevisor(second, remainder); }
+	}
+	
+	/**
+	 * Determines the highest common factor as a double of two double values.
+	 * 
+	 * @param first The first number (double).
+	 * @param second The second number (double).
+	 * @return Returns an double of the highest common factor.
+	 */
+	public static double greatestCommonDevisor(final double first, final double second)
+	{
+		double remainder = (first % second);
+		if (remainder == 0) { return second; }
+		else { return greatestCommonDevisor(second, remainder); }
+	}
+	
 }
