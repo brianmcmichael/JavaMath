@@ -217,10 +217,20 @@ public class JavaMath {
 	public static ArrayList<Integer> listAllPrimesThrough(final int highestNumber)
 	{
 		ArrayList<Integer> numList = new ArrayList<Integer>();		
-							
-		for(int i = 2; i <= highestNumber; i++) 	{
-			numList.add(i);
-		}
+		
+		if(highestNumber>1)
+		{
+			numList.add(2);
+			if (highestNumber > 2)
+			{
+				for(int i = 3; i <= highestNumber; i = i+2) 	
+				{		
+					numList.add(i);
+				}	
+			} else { return numList; }
+					
+		} else { return numList; }
+		
 		
 		double upperThreshold = Math.floor(Math.sqrt(highestNumber));
 		
