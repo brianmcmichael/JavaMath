@@ -1,3 +1,7 @@
+package com.brianmcmichael.JavaMath;
+
+import java.util.ArrayList;
+
 /**
  * @author Brian L. McMichael
  * 
@@ -201,4 +205,35 @@ public class JavaMath {
 		else { return greatestCommonDevisor(second, remainder); }
 	}
 	
+	///////////////////////////////////////////////
+	//         Generate List of Primes           //   
+	///////////////////////////////////////////////
+	
+	/**
+	 * This method generates the list of prime numbers through the inputed number.
+	 * @param highestNumber The highest number from which to return a list of primes. 
+	 * @return An ArrayList object containing all Primes through the entered number.
+	 */
+	public static ArrayList<Integer> listAllPrimesThrough(final int highestNumber)
+	{
+		ArrayList<Integer> numList = new ArrayList<Integer>();		
+							
+		for(int i = 2; i <= highestNumber; i++) 	{
+			numList.add(i);
+		}
+		
+		double upperThreshold = Math.floor(Math.sqrt(highestNumber));
+		
+		for(int j = 0; j <= upperThreshold; j++) 	{
+			int prime = numList.get(j);
+			for(int k = j+1; k < numList.size(); k++)			{
+				if ((numList.get(k) % prime) == 0)				{
+					numList.remove(k);
+				}
+			}			
+		}
+		return numList;
+	}
+	
 }
+

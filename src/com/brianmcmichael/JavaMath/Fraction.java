@@ -1,3 +1,5 @@
+package com.brianmcmichael.JavaMath;
+
 /**
  * @author Brian L. McMichael
  * 
