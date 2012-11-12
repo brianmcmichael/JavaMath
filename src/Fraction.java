@@ -1,7 +1,8 @@
 /**
  * @author Brian L. McMichael
  * 
- * Creates a fraction object with get and set functions for numerators and denominators. All numerators and denominators are held as double values.
+ * Creates a fraction object with get and set functions for numerators and denominators. 
+ * All numerators and denominators are held as double values.
  *
  */
 public class Fraction {
@@ -23,6 +24,26 @@ public class Fraction {
 	 * @param denominator The denominator of the fraction.
 	 */
 	public Fraction(final int numerator, final int denominator)
+	{
+		this.setNumerator(numerator);
+		this.setDenominator(denominator);		
+	}
+	
+	/**
+	 * @param numerator The numerator of the fraction.
+	 * @param denominator The denominator of the fraction.
+	 */
+	public Fraction(final float numerator, final float denominator)
+	{
+		this.setNumerator(numerator);
+		this.setDenominator(denominator);		
+	}
+	
+	/**
+	 * @param numerator The numerator of the fraction.
+	 * @param denominator The denominator of the fraction.
+	 */
+	public Fraction(final long numerator, final long denominator)
 	{
 		this.setNumerator(numerator);
 		this.setDenominator(denominator);		

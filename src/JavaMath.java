@@ -108,8 +108,7 @@ public class JavaMath {
 	
 	///////////////////////////////////////////////
 	//             Adding Fractions              //   
-	///////////////////////////////////////////////
-	
+	///////////////////////////////////////////////	
 	
 	/**
 	 * @param fractionOne The first Fraction object to be added.
@@ -129,12 +128,44 @@ public class JavaMath {
 		}
 		else
 		{
-			double newNumerator = numeratorOne * denominatorTwo;
-			double newDenominator = numeratorTwo * denominatorOne;
-			double GCD = greatestCommonDevisor(newNumerator, newDenominator);
-			newNumerator = newNumerator / GCD;
-			newDenominator = newDenominator / GCD;			
+			double numberA = (numeratorOne * denominatorTwo);
+			double numberB = (numeratorTwo * denominatorOne);
+			double numberC = (numberA + numberB);
+			double numberD = (denominatorOne * denominatorTwo);
+			double GCD = greatestCommonDevisor(numberC, numberD);
+			double newNumerator = numberC / GCD;
+			double newDenominator = numberD / GCD;			
 			return new Fraction(newNumerator, newDenominator);			
+		}		
+	}
+	
+	/**
+	 * Method allows for addition of simple fractions by int value and returns an int array of the resulting fraction.
+	 * 
+	 * @param numeratorOne The integer numerator of the first fraction.
+	 * @param denominatorOne The integer denominator of the first fraction.
+	 * @param numeratorTwo The integer numerator of the second fraction.
+	 * @param denominatorTwo The integer denominator of the second fraction.
+	 * @return Returns a two item int array where position [0] is the numerator and [1] is the denominator. 
+	 */
+	public static int[] addFractions(final int numeratorOne, final int denominatorOne, final int numeratorTwo, final int denominatorTwo)
+	{
+		if (denominatorOne == denominatorTwo)
+		{
+			int[] addedFraction = new int[]{ (numeratorOne + numeratorTwo), denominatorOne };
+			return addedFraction;
+		}
+		else
+		{
+			int numberA = (numeratorOne * denominatorTwo);
+			int numberB = (numeratorTwo * denominatorOne);
+			int numberC = (numberA + numberB);
+			int numberD = (denominatorOne * denominatorTwo);
+			int GCD = greatestCommonDevisor(numberC, numberD);
+			int newNumerator = numberC / GCD;
+			int newDenominator = numberD / GCD;	
+			int[] newFraction = new int[]{ newNumerator, newDenominator };
+			return newFraction;				
 		}		
 	}
 	
