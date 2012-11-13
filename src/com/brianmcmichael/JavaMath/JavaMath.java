@@ -245,5 +245,34 @@ public class JavaMath {
 		return numList;
 	}
 	
+	
+	///////////////////////////////////////////////
+	//      Generate List of Prime Factors       //   
+	///////////////////////////////////////////////
+	
+	/**
+	 * Method returns the prime factors of a given number.
+	 * @param numberToFactor The number to check factors. 
+	 * @return An ArrayList object containing prime factors.
+	 */
+	public static ArrayList<Integer> listAllPrimeFactorsOf(final int numberToFactor)
+	{
+		ArrayList<Integer> listA = listAllPrimesThrough(((int)Math.floor(numberToFactor/2)));
+		ArrayList<Integer> listB = new ArrayList<Integer>();
+		int thisFactor = numberToFactor;
+		
+		for (int i = 0; i < listA.size(); i++)
+		{
+			int prime = listA.get(i);
+			if (thisFactor % prime == 0)
+			{
+				thisFactor = thisFactor/prime;
+				listB.add(prime);
+			}			
+		}
+		return listB;
+	}
+	
+	
 }
 

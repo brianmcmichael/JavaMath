@@ -60,6 +60,16 @@ public class Fraction {
 		this.setNumerator(numerator);
 		this.setDenominator(denominator);	
 	}
+	
+	/** 
+	 * @param numerator The numerator of the fraction.
+	 * @param denominator The denominator of the fraction.
+	 */
+	public Fraction(final Fraction numerator, final Fraction denominator)
+	{
+		this.setNumerator(numerator.getValue());
+		this.setDenominator(denominator.getValue());
+	}
 
 	/**
 	 * @return The numerator.
