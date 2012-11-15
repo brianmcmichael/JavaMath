@@ -1,7 +1,7 @@
 package com.brianmcmichael.JavaMath;
 
 /**
- * @author Brian L. McMichael
+ * @author Brian L. McMichael <brian@brianmcmichael.com>
  * 
  * Creates a fraction object with get and set functions for numerators and denominators. 
  * All numerators and denominators are held as double values.

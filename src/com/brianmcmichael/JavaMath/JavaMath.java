@@ -3,7 +3,7 @@ package com.brianmcmichael.JavaMath;
 import java.util.ArrayList;
 
 /**
- * @author Brian L. McMichael
+ * @author Brian L. McMichael <brian@brianmcmichael.com>
  * 
  * JavaMath is a library of static mathematical methods.
  * 
@@ -178,6 +178,7 @@ public class JavaMath {
 	///////////////////////////////////////////////
 	
 	/**
+	 * Euclid's algorithm
 	 * Determines the highest common factor as int of two integers.
 	 * 
 	 * @param first The first number (int).
@@ -192,6 +193,7 @@ public class JavaMath {
 	}
 	
 	/**
+	 * Euclid's algorithm
 	 * Determines the highest common factor as a double of two double values.
 	 * 
 	 * @param first The first number (double).
@@ -273,6 +275,51 @@ public class JavaMath {
 		return listB;
 	}
 	
+	///////////////////////////////////////////////
+	//             Strict Modulo                 //   
+	///////////////////////////////////////////////
 	
+	/**
+	 * Congruence relation.
+	 * numberOne (is congruent to) [return] (mod numberTwo)
+	 * 
+	 * @param numberOne 
+	 * @param numberTwo 
+	 * @return 
+	 */
+	public static int strictModulo(final int numberOne, final int numberTwo)
+	{
+		int newModulo = (numberOne % numberTwo);
+		if (newModulo < 0)
+		{
+			return newModulo + numberTwo;
+		}
+		else
+		{
+			return newModulo;			
+		}		
+	}
+	
+	
+	///////////////////////////////////////////////
+	//             Add Clock Times               //   
+	///////////////////////////////////////////////
+	
+	/**
+	 * Allows for simple adding of clock times and returns the new time in integer hours and minutes.
+	 * @param startHours The hours on the first clock.
+	 * @param startMinutes The minutes on the first clock.
+	 * @param addHours The number of hours to add.
+	 * @param addMinutes The number of minutes to add to the clock.
+	 * @return Returns a two item int[] array containing the new time in hours and minutes.
+	 */
+	public static int[] addClocksSimple(int startHours, int startMinutes, int addHours, int addMinutes)
+	{
+		int newMinutes = strictModulo((startMinutes + addMinutes), 60);
+		int newAddHours = addHours + (((startMinutes + addMinutes) - newMinutes) / 60);
+		int newHours = (1 + strictModulo((startHours + newAddHours - 1), 12));
+		int[] clock  = { newHours, newMinutes };
+		return clock;
+	}
 }
 
